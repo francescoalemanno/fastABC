@@ -1,5 +1,5 @@
 # fastABC
-experimental repository for a c++ impementation of Approximate Bayesian Methods, stemming from the particle filtering literature.
+experimental repository for a c++ implementation of Approximate Bayesian Methods, stemming from the particle filtering literature.
 
 ![Alt text](./plot_infer/plot.svg)
 
