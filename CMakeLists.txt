@@ -1,6 +1,6 @@
 
-cmake_minimum_required(VERSION 3.16)
-
+cmake_minimum_required(VERSION 3.18)
+add_compile_options(-O3 --std=c++17)
 project(application)
 
 add_executable(application application.cpp)
