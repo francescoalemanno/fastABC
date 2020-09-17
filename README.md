@@ -8,7 +8,7 @@ experimental repository for a c++ implementation of Approximate Bayesian Methods
 ![Alt text](./tests/plot_infer/plot.svg)
 
 # deps
-must have GCC with C++ 17 support
+must have GCC with C++ 17 support (works from version 8.4 onwards)
 
 ## run tests with
 Open a terminal in main folder and
