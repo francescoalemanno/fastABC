@@ -1,4 +1,8 @@
 # fastABC
+**Tests:** 
+![Ubuntu](https://github.com/francescoalemanno/fastABC/workflows/Ubuntu/badge.svg)
+
+
 experimental repository for a c++ implementation of Approximate Bayesian Methods, stemming from the particle filtering literature.
 
 ![Alt text](./tests/plot_infer/plot.svg)
