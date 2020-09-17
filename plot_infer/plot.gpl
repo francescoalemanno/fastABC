@@ -1,0 +1,10 @@
+set xlabel "Velocity"
+set ylabel "Sigma"
+set title "Inference Results, at different tolerances"
+
+set terminal epslatex size 5.95,4.45 standalone color colortext 10
+set output 'plot.tex'
+
+plot 'inference_res1000000.txt' title 'Inf', 'inference_res100.txt' title "1.0",'inference_res50.txt' title "0.5", 'inference_res10.txt' title "0.1", 'inference_res5.txt' title "0.05", 'inference_res1.txt' title "0.01", '-' title 'truth' lw 5
+0.6 1.5
+e
