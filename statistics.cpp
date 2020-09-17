@@ -3,7 +3,7 @@
 #include <limits>
 #include <random>
 #include <tuple>
-
+#include <cmath>
 #include "particle.hpp"
 
 namespace statistics {
