@@ -1,4 +1,5 @@
-#include "statistics.cpp"
+#include "../statistics.cpp"
+using namespace statistics;
 int main() {
     default_rng rng;
     auto a=Uniform(0,2);

@@ -6,7 +6,7 @@
 
 #include "particle.hpp"
 
-namespace st {
+namespace statistics {
 typedef std::mt19937 default_rng;
 const double double_inf = std::numeric_limits<double>::infinity();
 

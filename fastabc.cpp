@@ -9,7 +9,7 @@
 
 namespace fastABC {
 #include "statistics.cpp"
-using namespace st;
+using namespace statistics;
 bool fastabc_verbose=false;
 void fastabc_verbosity(bool state) {
     fastabc_verbose = state;
