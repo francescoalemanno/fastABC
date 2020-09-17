@@ -5,11 +5,13 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    env:
+      CC: gcc-9
+      CXX: g++-9
     steps:
     - uses: actions/checkout@v1
     - name: cmake
-      run: cmake -S . -B build -D CMAKE_BUILD_TYPE=Debug -DJSON_BuildTests=On
+      run: cmake -S . -B build -D CMAKE_BUILD_TYPE=Release
     - name: build
       run: cmake --build build --parallel 10
     - name: test
