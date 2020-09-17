@@ -7,3 +7,6 @@ g++ --std=c++17 ./test_statistics.cpp -o test_statistics
 echo "Running Tests for fastabc"
 g++ --std=c++17 ./test_fastabc.cpp -o test_fastabc
 ./test_fastabc
+echo "Complex Inference Test"
+g++ -Ofast -std=c++17 application.cpp -o application; 
+./application

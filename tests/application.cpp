@@ -1,4 +1,4 @@
-#include "fastabc.cpp"
+#include "../fastabc.cpp"
 #include <fstream>
 
 using namespace fastABC;
