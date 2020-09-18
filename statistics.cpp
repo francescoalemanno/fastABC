@@ -57,18 +57,6 @@ template<unsigned d> double logpdf(DistVec &prior,Particle<d> &p) {
     return ll;
 }
 
-template<class T> std::tuple<T,T> meanstd(std::vector<T> P) {
-    double N=P.size();
-    T mu=P[0]/N;
-    T mu2=(P[0]*P[0])/N;
-    for(int i=1; i<N; i++) {
-        mu = mu + (P[i]/N);
-        mu2 = mu2 + ((P[i]*P[i])/N);
-    }
-    T sigma = sqrt(std::abs(mu2-mu*mu));
-    return {mu, sigma};
-}
-
 template<unsigned d> std::ostream& operator<<(std::ostream& os, const std::vector<Particle<d>> &P)
 {
     auto [mu,sigma] = meanstd(P); 

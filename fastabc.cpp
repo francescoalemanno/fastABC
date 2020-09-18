@@ -22,12 +22,12 @@ template<unsigned d, class T> auto fastabc(DistVec &prior, T &cost, unsigned N, 
     std::uniform_real_distribution<double> randu(0.0,1.0);
     double gamma=2.38/sqrt(2*d);
     std::vector<Particle<d>> particles;
-    std::vector<double> C;
+    double C[N]={0};
     double lpi[N]={0};
 
     for(int i=0;i<N;i++) {
         particles.push_back(rand<d>(rng,prior));
-        C.push_back(cost(particles[i].x));
+        C[i] = cost(particles[i].x);
         lpi[i] = logpdf(prior,particles[i]);
     }
     unsigned reps=0;
@@ -68,7 +68,7 @@ template<unsigned d, class T> auto fastabc(DistVec &prior, T &cost, unsigned N, 
                 lpi[i] = lpiproposal;
             }
         }
-        auto [Cmu, Csigma] = meanstd(C);
+        auto [Cmu, Csigma] = meanstd<double>(C, N);
         if(fastabc_verbose) {
             std::cout << reps << " -> " << particles << "; eps = " << adaeps << "; eff = " << (N+1)/(1.0*trys+1) << ";\t C = "<< Cmu << " \u00b1 "<< Csigma << std::endl;
         }

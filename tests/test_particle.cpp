@@ -1,4 +1,5 @@
 #include "../particle.hpp"
+using namespace std;
 int main() {
     Particle<10> x;
     Particle<10> y;
@@ -7,13 +8,15 @@ int main() {
         x[i]=i*i;
         y[i]=i+1;
     }
-
-    std::cout << x-y*y+2.0*y-1.0 << std::endl;
-    std::cout << y-5 << std::endl;
-    std::cout << -y << std::endl;
-    std::cout << m+7.5 << std::endl;
-    std::cout << +y << std::endl;
-    std::cout << std::abs(y-7.0)/6.0 << std::endl;
-    std::cout << (std::abs(y-5.0) == (y-5.0)) << std::endl;
-    std::cout << (std::abs(y-5.0) != (y-5.0)) << std::endl;
+    auto P=pow(sin(x),2)+pow(cos(x),2);
+    P.measurement=true;
+    cout << x-y*y+2.0*y-1.0 << endl;
+    cout << y-5 << endl;
+    cout << -y << endl;
+    cout << m+7.5 << endl;
+    cout << P << endl;
+    cout << +y << endl;
+    cout << abs(y-7.0)/6.0 << endl;
+    cout << (abs(y-5.0) == (y-5.0)) << endl;
+    cout << (abs(y-5.0) != (y-5.0)) << endl;
 }
