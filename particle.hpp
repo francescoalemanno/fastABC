@@ -29,7 +29,9 @@ template<unsigned d, typename T> std::ostream& operator<<(std::ostream& os, cons
 
 #define declare_operator(op,concreteop) \
     template<unsigned d, class T> Particle<d, T> op(const Particle<d, T> &a,const Particle<d, T> &b) {   \
+        bool meas=a.measurement || b.measurement;\
         Particle<d, T> z;\
+        z.measurement=meas;\
         for(int i=0; i<d; i++) {\
             z[i] = a[i] concreteop b[i];\
         }\
@@ -37,7 +39,9 @@ template<unsigned d, typename T> std::ostream& operator<<(std::ostream& os, cons
     }\
     template<unsigned d, class T, class Q> Particle<d, T> op(const Particle<d, T> &a,Q b)\
     {   \
+        bool meas=a.measurement;\
         Particle<d, T> z;\
+        z.measurement=meas;\
         for(int i=0; i<d; i++) {\
             z[i] = a[i] concreteop b;\
         }\
@@ -45,7 +49,9 @@ template<unsigned d, typename T> std::ostream& operator<<(std::ostream& os, cons
     }\
     template<unsigned d, class T, class Q> Particle<d, T> op(Q a,const Particle<d, T> &b)\
     {   \
+        bool meas=b.measurement;\
         Particle<d, T> z;\
+        z.measurement=meas;\
         for(int i=0; i<d; i++) {\
             z[i] = a concreteop b[i];\
         }\
@@ -56,7 +62,9 @@ template<unsigned d, typename T> std::ostream& operator<<(std::ostream& os, cons
 
 #define declare_broadcast2d(op,fun) \
     template<unsigned d, class T> Particle<d, T> op(const Particle<d, T> &a,const Particle<d, T> &b) {   \
+        bool meas=a.measurement || b.measurement;\
         Particle<d, T> z;\
+        z.measurement=meas;\
         for(int i=0; i<d; i++) {\
             z[i] = fun(a[i],b[i]);\
         }\
@@ -64,7 +72,9 @@ template<unsigned d, typename T> std::ostream& operator<<(std::ostream& os, cons
     }\
     template<unsigned d, class T, class Q> Particle<d, T> op(const Particle<d, T> &a,Q b)\
     {   \
+        bool meas=a.measurement;\
         Particle<d, T> z;\
+        z.measurement=meas;\
         for(int i=0; i<d; i++) {\
             z[i] = fun(a[i],b);\
         }\
@@ -72,7 +82,9 @@ template<unsigned d, typename T> std::ostream& operator<<(std::ostream& os, cons
     }\
     template<unsigned d, class T, class Q> Particle<d, T> op(Q a,const Particle<d, T> &b)\
     {   \
+        bool meas=b.measurement;\
         Particle<d, T> z;\
+        z.measurement=meas;\
         for(int i=0; i<d; i++) {\
             z[i] = fun(a,b[i]);\
         }\
@@ -84,7 +96,9 @@ template<unsigned d, typename T> std::ostream& operator<<(std::ostream& os, cons
 
 #define declare_broadcast(op,fun) \
     template<unsigned d, class T> Particle<d, T> op(const Particle<d, T> &a) {\
+        bool meas=a.measurement;\
         Particle<d, T> z;\
+        z.measurement=meas;\
         for(int i=0; i<d; i++) {\
             z[i] = fun(a[i]);\
         }\

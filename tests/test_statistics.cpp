@@ -30,6 +30,9 @@ int main() {
         vecp.push_back(rand<2>(rng,M));
         std::cout << vecp << std::endl;
     }
-    
+    auto x=rand<400>(rng,&a);
+    auto y=rand<400>(rng,&a);
+
+    std::cout << std::pow(x,y)<< std::endl;
 
 }
