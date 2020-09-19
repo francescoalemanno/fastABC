@@ -15,11 +15,10 @@ void fastabc_verbosity(bool state) {
     fastabc_verbose = state;
 }
 
-template<unsigned d, class T> auto fastabc(DistVec &prior, T &cost, unsigned N, double epstol=-double_inf, double efftol = 0.001,  double schedule=0.9) {
+template<unsigned d, class T> auto fastabc(DistVec &prior, T &cost, unsigned N, double epstol=-double_inf, double efftol = 0.001,  double schedule=0.8) {
     default_rng rng;
-    std::uniform_int_distribution<unsigned> randidx(0,N-1);
-    std::normal_distribution<double> randn(0.0,1.0);
-    std::uniform_real_distribution<double> randu(0.0,1.0);
+    std::uniform_int_distribution<unsigned> randidx(0, N-1);
+    std::uniform_real_distribution<double> randu(0.0, 1.0);
     double gamma=2.38/sqrt(2*d);
     std::vector<Particle<d>> particles;
     double C[N]={0};
@@ -44,9 +43,7 @@ template<unsigned d, class T> auto fastabc(DistVec &prior, T &cost, unsigned N, 
         unsigned trys=0;
         for(int i=0;i<N;i++) {
             while (C[i] > adaeps) {
-                if (trys*efftol > N) {
-                    break;
-                }
+                if (trys*efftol > N) break;
                 trys+=1;
                 unsigned a=i,b=i;
                 do a=randidx(rng); while (a==i);
